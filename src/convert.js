@@ -92,9 +92,9 @@ function project(lonlats, tolerance) {
 }
 
 function projectPoint(p) {
-    var sin = Math.sin(p[1] * Math.PI / 180),
-        x = (p[0] / 360 + 0.5),
-        y = (0.5 - 0.25 * Math.log((1 + sin) / (1 - sin)) / Math.PI);
+    // use equirectangular (4326) projection instead of Mercator 
+    var x = (p[0] / 180) + 1
+    var y = -(p[1] / 180) + 0.5
 
     y = y < 0 ? 0 :
         y > 1 ? 1 : y;
