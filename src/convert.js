@@ -70,7 +70,8 @@ function convertFeature(features, feature, tolerance) {
         for (i = 0; i < geom.geometries.length; i++) {
             convertFeature(features, {
                 geometry: geom.geometries[i],
-                properties: tags
+                properties: tags,
+                id: feature.id,
             }, tolerance);
         }
 
